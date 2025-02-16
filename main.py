@@ -1,5 +1,7 @@
 import os
 import re
+
+import click
 import yaml  # 用于生成 YAML 格式 Front Matter
 
 
@@ -222,15 +224,16 @@ def save_chapter_to_file(chapter, output_folder):
 
     print(f"文件已创建: {file_path}")
 
-def main():
-    folder_path = "backup"  # 文件夹名称
-    file_name = "snipd_export_2025-01-19_11-14.md"  # 文件名
-    input_file = os.path.join(folder_path, file_name)
-
-    output_folder = "chapters"  # 输出文件夹
+@click.command()
+@click.argument('file')
+@click.option('--output', '-o', default="chapters"
+    , type=click.Path(exists=True))
+def main(file: str, output: str) -> None:
+    folder_path = "backup"
+    input_file = os.path.join(folder_path, file)
 
     # 确保输出文件夹存在
-    os.makedirs(output_folder, exist_ok=True)
+    os.makedirs(output, exist_ok=True)
 
     # 读取文件内容
     try:
@@ -245,7 +248,11 @@ def main():
 
     # 遍历每个章节并保存为单独文件
     for chapter in chapters:
-        save_chapter_to_file(chapter, output_folder)
+        save_chapter_to_file(chapter, output)
+
+@click.command()
+def cli() -> None:
+    print("I'm working")
 
 if __name__ == "__main__":
     main()

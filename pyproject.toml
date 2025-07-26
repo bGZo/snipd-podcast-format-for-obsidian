@@ -1,9 +1,9 @@
 [project]
-name = "main"
-version = "0.1.0"
-description = ""
+name = "snipd_export_parser"
+version = "0.1.1"
+description = "A tool to parse Snipd export Markdown files into individual chapter files."
 authors = [
-    {name = "HX",email = "im@bgzo.cc"}
+    {name = "菜就多練練",email = "im@bgzo.cc"}
 ]
 license = {text = "AGPL-3.0"}
 readme = "README.md"
@@ -19,6 +19,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 #package-mode= false
 
+# 可选，命令行入口
 [tool.poetry.scripts]
-cli="main:cli"
-snipd="main:main"
+cli="snipd_export_parser:cli"
+snipd="snipd_export_parser:main"

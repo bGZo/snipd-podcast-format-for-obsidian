@@ -210,7 +210,7 @@ def save_chapter_to_file(chapter, output_folder):
         return
     title = replace_value(title_match.group(1).strip())
 
-    file_name = f"{title}.md"
+    file_name = f"~{title}.md"
     file_path = os.path.join(output_folder, file_name)
 
     # 提取元数据

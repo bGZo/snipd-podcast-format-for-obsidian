@@ -1,6 +1,6 @@
 [project]
 name = "snipd_export_parser"
-version = "0.1.1"
+version = "0.1.2"
 description = "A tool to parse Snipd export Markdown files into individual chapter files."
 authors = [
     {name = "菜就多練練",email = "im@bgzo.cc"}

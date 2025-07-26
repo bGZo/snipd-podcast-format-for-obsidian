@@ -229,8 +229,8 @@ def save_chapter_to_file(chapter, output_folder):
 @click.option('--output', '-o', default="chapters"
     , type=click.Path(exists=True))
 def main(file: str, output: str) -> None:
-    folder_path = "backup"
-    input_file = os.path.join(folder_path, file)
+    # folder_path = "backup"
+    input_file = file # os.path.join(folder_path, file)
 
     # 确保输出文件夹存在
     os.makedirs(output, exist_ok=True)
